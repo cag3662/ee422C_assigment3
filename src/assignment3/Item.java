@@ -73,6 +73,15 @@ public class Item
 		System.out.println("\nWeight: " + this.getWeight());
 		System.out.println("\nPrice: " + this.getPrice());
 		
+		
+		
+		//Testing git
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		
 	}
 
 }
