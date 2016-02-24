@@ -1,7 +1,7 @@
 package assignement3;
+import java.util.Comparator;
 
-
-public class Item 
+public class Item
 {
 //Declare variables for this class. Think about its type: public, protected or private?
 	public String name;
@@ -74,5 +74,16 @@ public class Item
 		System.out.println("\nPrice: " + this.getPrice());
 
 	}
+	 
+  /*Comparator for sorting the list by Item Name*/
+    public static Comparator<Item> ItemNameComparator = new Comparator<Item>() {
+
+	public int compare(Item s1, Item s2) {
+	   String ItemName1 = s1.getName().toUpperCase();
+	   String ItemName2 = s2.getName().toUpperCase();
+
+	   //ascending order
+	   return ItemName1.compareTo(ItemName2);
+    }};
 
 }
