@@ -3,12 +3,17 @@ package assignement3;
 
 public class Clothing extends Item 
 {
-
+// variables, constructors
 	public Clothing(String name, float price, int quantity, float weight){
 		super(name, price, quantity, weight);
 	}	
-	// variables, constructors as necessary
 	
+// Methods
+	
+/**
+ * Determine price of clothing item
+ * @return price as a floating point number
+ */
 	float calculatePrice () 
 	{
 		float final_price = 0;
@@ -24,6 +29,9 @@ public class Clothing extends Item
 		return final_price;
 	}
 	
+/**
+ * print clothing item's attributes
+ */
 	void printItemAttributes () 
 	{
 		System.out.println("Name:" + this.getName());
@@ -31,6 +39,5 @@ public class Clothing extends Item
 		System.out.println("\nWeight: " + this.getWeight());
 		System.out.println("\nPrice: " + this.getPrice());	//Print all applicable attributes of this sub-class
 	}
-	
 
 }

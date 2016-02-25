@@ -1,9 +1,10 @@
 package assignement3;
 import java.util.Comparator;
 
+
 public class Item
 {
-//Declare variables for this class. Think about its type: public, protected or private?
+// Variables for this class
 	public String name;
 	public float price;
 	public int quantity;
@@ -11,7 +12,7 @@ public class Item
 	
 
 	
-// You will need a constructor (Why?). Create it here.
+// Constructor
 
 	public Item(){
 		name = "";
@@ -27,6 +28,7 @@ public class Item
 		this.weight = weight;
 	}
 	
+// Getters
 	String getName(){
 		return name;
 	}
@@ -40,7 +42,7 @@ public class Item
 		return weight;
 	}
 	
-	
+// Setters
 	void setName(String name){
 		this.name = name;
 	}
@@ -53,7 +55,13 @@ public class Item
 	void setWeight(float weight){
 		this.weight = weight;
 	}
+
+// Methods
 	
+/**
+ * Determine price of electronic item
+ * @return price as a floating point number
+ */
 	float calculatePrice () 
 	{
 		float final_price = 0;
@@ -65,7 +73,9 @@ public class Item
 		return final_price;
 	}
 	
-
+/**
+ * print item's attributes
+ */
 	void printItemAttributes () 
 	{
 		System.out.println("Name:" + this.getName());
@@ -75,7 +85,7 @@ public class Item
 
 	}
 	 
-  /*Comparator for sorting the list by Item Name*/
+ /*Comparator for sorting a shopping list by item Name*/
     public static Comparator<Item> ItemNameComparator = new Comparator<Item>() {
 
 	public int compare(Item s1, Item s2) {

@@ -4,7 +4,7 @@ package assignement3;
 public class Electronics extends Item 
 {
 
-	// Variables, constructors etc. here.
+// Variables, constructors etc. here.
 	private String fragile;
 	private String state;
 
@@ -13,7 +13,9 @@ public class Electronics extends Item
 		this.fragile = frag;
 		this.state = st;
 		
-	}	
+	}
+	
+// Getters and setters
 	/**
 	 * @return the fragile
 	 */
@@ -39,6 +41,12 @@ public class Electronics extends Item
 		this.state = state;
 	}
 	
+// Class Methods	
+	
+/**
+ * Determine price of electronic item
+ * @return price as a floating point number
+ */
 	float calculatePrice () 
 	{
 		float final_price = 0;
@@ -65,9 +73,12 @@ public class Electronics extends Item
 		return final_price;
 	}
 	
-	/*
-	 * No sales tax = false, Sales tax = true
-	 */
+/**
+ * Check if state requires sales tax or not
+ * @param the state to check
+ * @return a flag indicating sales tax or no sales tax
+ * No sales tax = false, Sales tax = true
+ */
 	public boolean check_state(String state){
 		boolean check = true;
 		
@@ -93,6 +104,9 @@ public class Electronics extends Item
 		return check;
 	}
 	
+/**
+ * print electronic item's attributes
+ */
 	void printItemAttributes () 
 	{
 		System.out.println("Name:" + this.getName());
@@ -102,6 +116,5 @@ public class Electronics extends Item
 		System.out.println("\nFragile: " + this.getFragile());
 		System.out.println("\nDelivery location: " + this.getState());
 	}
-	//Implement calculate price/print methods as necessary
 
 }

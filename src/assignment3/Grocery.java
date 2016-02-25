@@ -1,7 +1,9 @@
 package assignement3;
 
-public class Grocery extends Item {
-	//variables, constructor here
+
+public class Grocery extends Item
+{
+//variables, constructor here
 	public String perish;
 	
 	
@@ -11,6 +13,7 @@ public class Grocery extends Item {
 		
 	}
 	
+// Getters and setters
 	public String getPerish() {
 		return perish;
 	}
@@ -19,7 +22,12 @@ public class Grocery extends Item {
 		this.perish = perish;
 	}
 
+// Methods
 	
+/**
+ * Determine price of grocery item
+ * @return price as a floating point number
+ */
 	float calculatePrice () 
 	{
 		float final_price = 0;
@@ -38,6 +46,9 @@ public class Grocery extends Item {
 		return final_price;
 	}
 	
+/**
+ * print grocery item's attributes
+ */
 	void printItemAttributes () 
 	{
 		System.out.println("Name:" + this.getName());

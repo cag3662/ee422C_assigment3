@@ -43,11 +43,12 @@ public class A3Driver
 			}
 	  }
 	  
-	  
-	  /*
-	   * Driver will parse inputString and do five operations
-	   * 
-	   */
+	/******************************************************************************
+	* Method Name: driver														  *
+	* Purpose: Driver will parse inputString and do one of five operations:  	  *
+	* 				insert, update, search, delete, or print					  *
+	* Returns: None                                                               *
+	******************************************************************************/
 	  public void driver(String inputString){
 		  	
 		  
@@ -90,6 +91,10 @@ public class A3Driver
 							Grocery grocery = new Grocery(name, price, quantity, weight, perish);
 							shoppingCart.add(grocery);
 						}
+						else{
+							System.out.println("[" + inputString + "] is not valid input!!\n");
+							System.out.println("***********************************************");
+						}
 					}
 					else{
 							System.out.println("[" + inputString + "] is not valid input!!\n");
@@ -116,6 +121,10 @@ public class A3Driver
 							String state = arry[7];
 							Electronics electronic = new Electronics(name, price, quantity, weight, fragile, state);
 							shoppingCart.add(electronic);
+						}
+						else{
+							System.out.println("[" + inputString + "] is not valid input!!\n");
+							System.out.println("***********************************************");
 						}
 					}
 					else{
@@ -167,10 +176,12 @@ public class A3Driver
 					}
 				}
 				if(total_number > 0){
-					System.out.println(product_name + " exists " + total_number + " times in shopping cart!!" );
+					System.out.println(product_name + " was found " + total_number + " time(s) in the shopping cart." );
+					System.out.println();
 				}
 				else if(total_number == 0){
-					System.out.println(product_name + " is not exist in the shopping cart!!");
+					System.out.println("The item \"" + product_name + "\" does not exist in the shopping cart.");
+					System.out.println();
 				}
 				
 			}	//the end of search algorithm
@@ -191,10 +202,12 @@ public class A3Driver
 				}
 				
 				if(total_number > 0){
-					System.out.println(total_number + " " + product_name + " item(s) is/are deleted from shopping cart");
+					System.out.println(total_number + " " + product_name + " item(s) was/were deleted from the shopping cart.");
+					System.out.println();
 				}
 				else if(total_number == 0){
-					System.out.println(product_name + " is not existed in the shopping cart!");
+					System.out.println("The item \"" + product_name + "\" does not exist in the shopping cart.");
+					System.out.println();
 				}
 				
 			}	//the end of delete algorithm
@@ -221,10 +234,12 @@ public class A3Driver
 					}
 					
 					if(flag == 0){
-						System.out.println(product_name + " is not existed in shopping cart!!");
+						System.out.println("The item \"" + product_name + "\" does not exist in the shopping cart.");
+						System.out.println();
 					}
 					else if(flag == 1){
 						System.out.println("New quantity of " + product_name + " is now " + quantity);
+						System.out.println();
 					}
 					
 					
@@ -245,6 +260,7 @@ public class A3Driver
 					shoppingCart.get(i).printItemAttributes();
 					System.out.println();
 					total_price = total_price + shoppingCart.get(i).calculatePrice();
+					total_price = Math.round(total_price*100)/100.f; 			//round up to two decimal point
 					System.out.println("\tTotal Charge for individual item: $" + shoppingCart.get(i).calculatePrice());
 					System.out.println();
 				}
@@ -259,28 +275,22 @@ public class A3Driver
 				System.out.println("[" + inputString + "] is not valid input!!\n");
 				System.out.println("***********************************************");
 			}
-			
-			
-			
-			// General code example for how to iterate an array list. You will have to modify this heavily, to suit your needs.
-/*			Iterator<Item> i = shoppingCart.iterator();
-			while (i.hasNext()) 
-			{
-				Item temp = i.next();
-				temp.calculatePrice(); 
-				temp.printItemAttributes();
-				
-			}
-*/
-		  
 	  }
-	  
-	 //public void insert
-	  
-	  
-/*
- * Insert = 1, search = 2, delete = 3, update = 4, print = 5, invalid operation = -1
- */
+	  	  
+	/******************************************************************************
+	* Method Name: operation_det                                             	  *
+	* Purpose: Determines what operation the user has requested. The operation	  *
+	* 		   code is specified in the input argument. It's converted from a	  *
+	* 		   a String object to an integer.									  *
+	* Operation Codes:															  *
+	* 			Insert = 1														  *
+	* 			search = 2														  *
+	* 			delete = 3														  *
+	* 			update = 4														  *
+	* 			print = 5														  *
+	* 			invalid operation = -1											  *
+	* Returns: The requested operation code                                  	  *                             *
+	******************************************************************************/
 	 public int operation_det(String operation){
 		 int flag = -1;
 		 
@@ -303,7 +313,17 @@ public class A3Driver
 		 
 		 return flag;
 	 }
-		  
+
+	/******************************************************************************
+	* Method Name: category                                             		  *
+	* Purpose: Determines the current item category, which can be "groceries",	  *
+	* 		   "electronics", "clothing", or invalid.                                      *
+	* Returns: Integer code representing the item category.						  *
+	* 			groceries = 1													  *
+	* 			electronics = 2													  *
+	* 			clothing = 3													  *
+	* 			invalid = -1													  *                                                               *
+	******************************************************************************/
 	 public int category(String category){
 		 int flag = -1;
 		 if(category.equals("groceries")){
@@ -319,6 +339,15 @@ public class A3Driver
 		 return flag;
 	 }
 	 
+	/******************************************************************************
+	* Method Name: initialerrorhandling                                           *
+	* Purpose: Determines if the 'name', 'price', 'quantity', and 'weight'		  *
+	* 		   input arguments are valid or invalid.  An input array holding	  *
+	* 		   these arguments is the input to this method.                       *                *
+	* Returns: A boolean flag indicating valid or invalid arguments.			  *
+	* 		   true = all arguments are valid									  *
+	* 		   false = at least one argument is invalid							  *                                                               *
+	******************************************************************************/
 	 public boolean initialerrorhandling(String[] arry){
 		 boolean flag = false;
 		 boolean flag1 = false;
@@ -344,6 +373,12 @@ public class A3Driver
 		 return flag;
 	 }
 	 
+	/******************************************************************************
+	* Method Name: initial_gro_errorhandling                                      *
+	* Purpose: Checks whether or not perishable argument passed by the user		  *
+	* 		   is valid.                                     					  *
+	* Returns: Boolean flag indicating a valid or nonvalid argument               *
+	******************************************************************************/
 	 public boolean initial_gro_errorhandling(String[] arry){
 		 boolean flag = false;
 		 
@@ -355,10 +390,14 @@ public class A3Driver
 		 return flag;
 	 }
 	 
-/*
- * 
- * 
- */
+	/******************************************************************************
+	* Method Name: initial_elec_errorhandling                                     *
+	* Purpose: Checks whether or not state and fragile argument passed by 		  *
+	* 		   the user are valid.                                      		  *
+	* Returns: Boolean flag indicating valid or invalid arguments.				  *
+	* 			true = both arguments are valid									  *
+	* 			false = at least one argument is invalid						  *
+	******************************************************************************/
 	 public boolean initial_elec_errorhandling(String[] arry){
 		 boolean flag = false;
 		 boolean flag1 = false;
