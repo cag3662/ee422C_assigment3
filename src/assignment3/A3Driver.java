@@ -206,9 +206,6 @@ public class A3Driver
 				
 				String product_name = arry[1];
 				
-				boolean test = arry[2].matches("\\d+");
-				int test2 = arry.length;
-				
 				if(arry[2].matches("\\d+") && arry.length == 3){
 					
 					int flag = 0;
@@ -241,6 +238,8 @@ public class A3Driver
 			else if(operation_check == 5){
 				
 				float total_price = 0;
+				
+				Collections.sort(shoppingCart, Item.ItemNameComparator);
 				
 				for(int i=0; i<shoppingCart.size(); i++){
 					shoppingCart.get(i).printItemAttributes();
